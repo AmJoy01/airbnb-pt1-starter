@@ -76,6 +76,17 @@ class User {
       ]
     )
     const user = userResult.rows[0]
+    user.firstName = user.first_name
+    delete user.first_name
+
+    user.lastName = user.last_name
+    delete user.last_name
+
+    user.isAdmin = user.is_admin
+    delete user.is_admin
+
+    user.createdAt = user.created_at
+    delete user.created_at
 
     return user
   }

@@ -14,6 +14,26 @@ beforeEach(commonBeforeEach)
 afterEach(commonAfterEach)
 afterAll(commonAfterAll)
 
+
+describe("Booking", () => {
+  describe("Test createBooking", () => {
+    test("Can create a new booking with valid params", async () => {
+      const user = { username: "jlo" }
+      const listingId = testListingIds[0]
+      const listing = await Listing.fetchListingById(listingId)
+
+      const startDate = "0-07-2022"
+      const endDate = "01-09-2022"
+      const guests = 1
+      const newBooking = { startDate, endDate, guests }
+
+      const booking = await Booking.createBooking({ newBooking, listing, user })
+
+
+    })
+  })
+})
+
 describe("Booking", () => {
   describe("Test listBookingsFromUser", () => {
     test("Fetches all of the authenticated users' bookings", async () => {
